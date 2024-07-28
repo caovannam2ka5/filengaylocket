@@ -4,71 +4,8 @@ const mapping = {
     'Locket': ['Gold']
   };
   // =========   Phần cố định  ========= // 
-  // =========  @Nam007 ========= // 
- var request = $request;
-
-const options = {
-    url: "https://api.revenuecat.com/v1/product_entitlement_mapping",
-    headers: {
-     'Authorization' : request.headers["authorization"],
-     'X-Platform' : 'iOS' ,
-     'User-Agent' : request.headers["user-agent"]
-    }
-}
-
-$httpClient.get(options, function(error, newResponse, data){
-  
-const ent = JSON.parse(data);
-
-let jsonToUpdate = {
-        "request_date_ms": 1704070861000,
-        "request_date": "2024-29-07T01:01:01Z",
-        "subscriber": "Hoàng Nam" {
-            "entitlement": {},
-            "first_seen": "2024-29-07.T01:01:01Z",
-            "original_application_version": "9692",
-            "last_seen": "2024-29-07T01:01:01Z",
-            "other_purchases": {},
-            "management_url": null,
-            "subscriptions": {},
-            "entitlements": {},
-            "original_purchase_date": "2024-29-07T01:01:01Z",
-            "original_app_user_id": "70B24288-83C4-4035-B001-573285B21AE2",
-            "non_subscriptions": {}
-        }
-    };
-
-const productEntitlementMapping = ent.product_entitlement_mapping
-
-for (const [entitlementId, productInfo] of Object.entries(productEntitlementMapping)) {
-  const productIdentifier = productInfo.product_identifier;
-  const entitlements = productInfo.entitlements;
-
-
-  for (const entitlement of entitlements) {
-    jsonToUpdate.subscriber.entitlements[entitlement] = {
-      "purchase_date": "2024-29-07T01:01:01Z",
-      "original_purchase_date": "2024-29-07T01:01:01Z",
-      "expires_date": "9692-01-01T01:01:01Z",
-      "is_sandbox" : false,
-      "ownership_type": "PURCHASED",
-      "store": "app_store",
-      "product_identifier": productIdentifier
-    };
-
-    // Add product identifier to subscriptions
-    jsonToUpdate.subscriber.subscriptions[productIdentifier] = {
-      "expires_date": "9692-01-01T01:01:01Z",
-      "original_purchase_date": "2024-29-07T01:01:01Z",
-      "purchase_date": "2024-29-07T01:01:01Z",
-      "is_sandbox" : false,
-      "ownership_type": "PURCHASED",
-      "store": "app_store"
-    };
-  }
-}
-
-body = JSON.stringify(jsonToUpdate);
-$done({body});
-
-});
+  // =========  @Hoàng Nam 005 ========= // 
+  // ========= Facebook : Cao Văn Nam (v) ==========//
+  //========== Bản Này Đang Bán Với Giá 2tr ===========//
+  //========== Cấm Thằng Nào Share ==============//
+  var ua=$request.headers["User-Agent"]||$request.headers["user-agent"],obj=JSON.parse($response.body);obj.Attention="Bản Này Độc Quyển Của Hoàng Nam 2005";var nam005={is_sandbox:!1,ownership_type:"PURCHASED",billing_issues_detected_at:null,period_type:"normal",expires_date:"2099-12-18T01:04:17Z",grace_period_expires_date:null,unsubscribe_detected_at:null,original_purchase_date:"2024-07-28T01:04:18Z",purchase_date:"2024-07-28T01:04:17Z",store:"app_store"},Hoangnam005={grace_period_expires_date:null,purchase_date:"2024-07-28T01:04:17Z",product_identifier:"com.nam005.premium.yearly",expires_date:"2099-12-18T01:04:17Z"};const match=Object.keys(mapping).find(e=>ua.includes(e));if(match){let[e,s]=mapping[match];s?(Hoangnam005.product_identifier=s,obj.subscriber.subscriptions[s]=nam005):obj.subscriber.subscriptions["com.nam005.premium.yearly"]=nam005,obj.subscriber.entitlements[e]=Hoangnam005}else obj.subscriber.subscriptions["com.nam005.premium.yearly"]=nam005,obj.subscriber.entitlements.pro=Hoangnam005;$done({body:JSON.stringify(obj)});
