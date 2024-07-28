@@ -23,7 +23,7 @@ const ent = JSON.parse(data);
 let jsonToUpdate = {
         "request_date_ms": 1704070861000,
         "request_date": "2024-29-07T01:01:01Z",
-        "subscriber": {
+        "subscriber": "Hoàng Nam" {
             "entitlement": {},
             "first_seen": "2024-29-07.T01:01:01Z",
             "original_application_version": "9692",
